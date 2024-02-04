@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "390478988337",
+    "project_id": "flutterfirebasefirst-8a2e7",
+    "storage_bucket": "flutterfirebasefirst-8a2e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390478988337:android:373470fcf76e08b73d4110",
+        "android_client_info": {
+          "package_name": "com.example.akxar_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390478988337-76mpcojn36b37ubcnvhsdvsi6tep2c60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWtcF0o9ZZeDBZpb8KM_-yrwk9a5iAP8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390478988337-76mpcojn36b37ubcnvhsdvsi6tep2c60.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "390478988337-8i1vh4k4ul0r0sl9j2stk3nv640p1bu4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.akxarApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
