@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '390478988337',
     projectId: 'flutterfirebasefirst-8a2e7',
     storageBucket: 'flutterfirebasefirst-8a2e7.appspot.com',
+    androidClientId: '390478988337-1bn7pvr9l7gojh30gd7ka05af9lraa4c.apps.googleusercontent.com',
     iosClientId: '390478988337-8i1vh4k4ul0r0sl9j2stk3nv640p1bu4.apps.googleusercontent.com',
     iosBundleId: 'com.example.akxarApp',
   );

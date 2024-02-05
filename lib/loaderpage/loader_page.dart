@@ -16,7 +16,7 @@ class _LoaderScreenState extends State<LoaderScreen>
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(const Duration(seconds: 3 ),() {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (_) => const IntialPage(),
       ));
@@ -35,15 +35,6 @@ class _LoaderScreenState extends State<LoaderScreen>
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.white, Colors.purple],
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-              ),
-            ),
-          ),
           Center(
             child: Image.asset(
               'assets/images/img_logo.png', // Replace with your actual image path

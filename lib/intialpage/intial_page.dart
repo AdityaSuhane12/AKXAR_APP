@@ -35,7 +35,7 @@ class _IntialPageState extends State<IntialPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(205, 133, 85, 221),
+        backgroundColor: const Color(0xFF7E30E1),
         shape: CustomShapeBorder(),
       ),
       body: Center(
@@ -145,7 +145,7 @@ class _IntialPageState extends State<IntialPage> {
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-          color: Color.fromARGB(205, 133, 85, 221), // Background color
+          color: Color(0xFF7E30E1), // Background color
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30.0),
             topRight: Radius.circular(30.0),
@@ -170,8 +170,7 @@ class _IntialPageState extends State<IntialPage> {
         child: ElevatedButton(
           onPressed: _handleGoogleSignIn,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(
-                205, 133, 85, 221), // Set the background color
+            backgroundColor: const Color(0xFF7E30E1), // Set the background color
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -202,11 +201,40 @@ class _IntialPageState extends State<IntialPage> {
 
   Widget _userInfo() {
     return Center(
-        child: MaterialButton(
-      color: Colors.purple,
-      onPressed: _auth.signOut,
-      child: const Text('signout'),
-    ));
+      child: SizedBox(
+        height: 50,
+        width: 300,
+        child: ElevatedButton(
+          onPressed: _auth.signOut,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(
+                205, 133, 85, 221), // Set the background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/img_google_logo.png', // Replace with your Google logo image asset
+                height: 24,
+                width: 24,
+              ),
+              const SizedBox(
+                  width: 10), // Add some space between image and text
+              const Text(
+                "Sign Out",
+                style: TextStyle(
+                  color: Colors.black, // Set the text color
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
