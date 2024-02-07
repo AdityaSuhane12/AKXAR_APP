@@ -26,6 +26,12 @@ class _IntialPageState extends State<IntialPage> {
     try {
       GoogleAuthProvider googleAuthProvider = GoogleAuthProvider();
       _auth.signInWithProvider(googleAuthProvider);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ProfilePage(),
+        ),
+      );
     } catch (error) {
       print(error);
     }
@@ -170,7 +176,8 @@ class _IntialPageState extends State<IntialPage> {
         child: ElevatedButton(
           onPressed: _handleGoogleSignIn,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF7E30E1), // Set the background color
+            backgroundColor:
+                const Color(0xFF7E30E1), // Set the background color
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -207,8 +214,8 @@ class _IntialPageState extends State<IntialPage> {
         child: ElevatedButton(
           onPressed: _auth.signOut,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(
-                205, 133, 85, 221), // Set the background color
+            backgroundColor:
+                const Color(0xFF7E30E1), // Set the background color
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),

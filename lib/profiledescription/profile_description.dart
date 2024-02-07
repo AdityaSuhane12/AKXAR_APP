@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
+import 'package:akxar_app/quizpage/quiz_page.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -15,13 +12,16 @@ class MyApp extends StatelessWidget {
 }
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  int? _selectedGrade;
+  double _selectedAge = 3;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,11 +64,33 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Column(
                     children: [
-                      _button(),
-                      const SizedBox(
-                        height: 20,
+                      Slider(
+                        value: _selectedAge,
+                        min: 3,
+                        max: 16,
+                        divisions: 13,
+                        label: _selectedAge.toString(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedAge = value;
+                          });
+                        },
                       ),
-                      _button2(),
+                      Text(
+                        'Selected Age: ${_selectedAge.toInt()}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(height: 10,),
+                    ClipOval(
+  child: SizedBox(
+    width: 125,
+    height: 95,
+    child: Image.asset('assets/images/profile.png'),
+  ),
+)
                     ],
                   )
                 ],
@@ -82,44 +104,64 @@ class _ProfilePageState extends State<ProfilePage> {
               width: 300,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color:  const Color(0xFF7E30E1),
+                color: const Color(0xFF7E30E1),
               ),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    'Select Your Grade / Standard',
-                    style: TextStyle(
-                      fontFamily: 'Arial',
-                      fontSize: 17,
-                      color: Colors.white,
+              child: Center(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: const Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter grade',
-                              hintStyle: TextStyle(color: Colors.white),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                    const Text(
+                      'Select Your Grade / Standard',
+                      style: TextStyle(
+                        fontFamily: 'Arial',
+                        fontSize: 17,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: DropdownButtonFormField<int>(
+                              decoration: const InputDecoration(
+                                hintText: 'Select grade',
+                                hintStyle: TextStyle(color: Colors.white),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white),
+                                ),
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
-                              ),
+                              style: const TextStyle(color: Colors.white), // Change font color to white
+                              iconEnabledColor: Colors.white, // Change icon color to white
+                              dropdownColor:  const Color(0xFF7E30E1), // Change dropdown background color to purple
+                              value: _selectedGrade,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _selectedGrade = newValue!;
+                                });
+                              },
+                              items: List.generate(12, (index) => index + 1)
+                                  .map<DropdownMenuItem<int>>((int value) {
+                                return DropdownMenuItem<int>(
+                                  value: value,
+                                  child: Text(
+                                    value.toString(),
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                );
+                              }).toList(),
                             ),
-                            style: TextStyle(color: Colors.white),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             const SizedBox(
@@ -129,17 +171,27 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 50,
               width: 300,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const QuizPage()),
+                      );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF7E30E1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                child:  const Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [SizedBox(width: 20,),
-                    Text('Save', style: TextStyle(color: Colors.white, fontSize: 17)),
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text('Save',
+                        style: TextStyle(color: Colors.white, fontSize: 17)),
                     Icon(
                       Icons.arrow_forward,
                       color: Colors.white,
@@ -152,96 +204,6 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _button() {
-    return Row(
-      children: [
-        const SizedBox(width: 35),
-        SizedBox(
-          height: 70,
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 245, 75, 217),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                // Adjust the value for rounded corners
-              ),
-            ),
-            child: const Text(
-              "Years\n3 - 6",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        const SizedBox(width: 35),
-        SizedBox(
-          height: 70,
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 245, 75, 217),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                // Adjust the value for rounded corners
-              ),
-            ),
-            child: const Text(
-              "Years\n7 - 10",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _button2() {
-    return Row(
-      children: [
-        const SizedBox(width: 35),
-        SizedBox(
-          height: 70,
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 245, 75, 217),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                // Adjust the value for rounded corners
-              ),
-            ),
-            child: const Text(
-              "Years\n10 -13 ",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        const SizedBox(width: 35),
-        SizedBox(
-          height: 70,
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 245, 75, 217),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                // Adjust the value for rounded corners
-              ),
-            ),
-            child: const Text(
-              "Years\n13 - 16",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
