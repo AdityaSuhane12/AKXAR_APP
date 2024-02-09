@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:akxar_app/quizpage/quiz_page.dart';
+import 'package:akxar_app/backgroundpage/background.dart';
 
 class MyApp extends StatelessWidget {
   @override
