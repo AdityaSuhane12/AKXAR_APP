@@ -27,7 +27,12 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF7E30E1),
-        shape: CustomShapeBorder(),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(40),
+            bottomRight: Radius.circular(40),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -83,14 +88,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontSize: 16,
                         ),
                       ),
-                      const SizedBox(height: 10,),
-                    ClipOval(
-  child: SizedBox(
-    width: 125,
-    height: 95,
-    child: Image.asset('assets/images/profile.png'),
-  ),
-)
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ClipOval(
+                        child: SizedBox(
+                          width: 125,
+                          height: 95,
+                          child: Image.asset('assets/images/profile.png'),
+                        ),
+                      )
                     ],
                   )
                 ],
@@ -136,9 +143,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                   borderSide: BorderSide(color: Colors.white),
                                 ),
                               ),
-                              style: const TextStyle(color: Colors.white), // Change font color to white
-                              iconEnabledColor: Colors.white, // Change icon color to white
-                              dropdownColor:  const Color(0xFF7E30E1), // Change dropdown background color to purple
+                              style: const TextStyle(
+                                  color: Colors
+                                      .white), // Change font color to white
+                              iconEnabledColor:
+                                  Colors.white, // Change icon color to white
+                              dropdownColor: const Color(
+                                  0xFF7E30E1), // Change dropdown background color to purple
                               value: _selectedGrade,
                               onChanged: (newValue) {
                                 setState(() {
@@ -172,11 +183,10 @@ class _ProfilePageState extends State<ProfilePage> {
               width: 300,
               child: ElevatedButton(
                 onPressed: () {
-                Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const QuizPage()),
-                      );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const QuizPage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF7E30E1),
@@ -205,23 +215,5 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
     );
-  }
-}
-
-class CustomShapeBorder extends ContinuousRectangleBorder {
-  @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    const double radius = 49.0;
-    final Path path = Path()
-      ..moveTo(rect.left, rect.top)
-      ..lineTo(rect.bottomLeft.dx, rect.bottomLeft.dy - radius)
-      ..quadraticBezierTo(rect.bottomLeft.dx, rect.bottomLeft.dy,
-          rect.bottomLeft.dx + radius, rect.bottomLeft.dy)
-      ..lineTo(rect.bottomRight.dx - radius, rect.bottomRight.dy)
-      ..quadraticBezierTo(rect.bottomRight.dx, rect.bottomRight.dy,
-          rect.bottomRight.dx, rect.bottomRight.dy - radius)
-      ..lineTo(rect.right, rect.top)
-      ..close();
-    return path;
   }
 }

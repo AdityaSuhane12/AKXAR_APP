@@ -1,4 +1,8 @@
+import 'package:akxar_app/Test_page/decodingtest.dart';
+import 'package:akxar_app/Test_page/phonologicaltest.dart';
+import 'package:akxar_app/Test_page/spelling.dart';
 import 'package:flutter/material.dart';
+import 'package:akxar_app/Test_page/wordtest.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({Key? key}) : super(key: key);
@@ -20,12 +24,12 @@ class _TestPageState extends State<TestPage> {
       body: Stack(
         children: [
           // Background logo
-             Center(
-               child: Image.asset(
-                'assets/images/img_background_logo.png',
-                fit: BoxFit.cover,
-                           ),
-             ),
+          Center(
+            child: Image.asset(
+              'assets/images/img_background_logo.png',
+              fit: BoxFit.cover,
+            ),
+          ),
           Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -40,13 +44,48 @@ class _TestPageState extends State<TestPage> {
                     for (int i = 0; i < testCompletion.length; i++)
                       ElevatedButton(
                         onPressed: () {
-                          // Simulate completing a test paper
+                          bool canOpenTest = true;
+
+                          // Check if previous tests are completed before opening the current one
+                          for (int j = 0; j < i; j++) {
+                            if (!testCompletion[j]) {
+                              canOpenTest = false;
+                              break;
+                            }
+                          }
+
+                          // Navigate to the test page if conditions are met
+                          if (canOpenTest) {
+                            if (i == 0) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const wordPage()),
+                              );
+                            } else if (i == 1) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const DecodingPage()),
+                              );
+                            } else if (i == 2) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const PhonologicalPage()),
+                              );
+                            } else if (i == 3) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const SpellingPage()),
+                              );
+                            }
+                          }
+                          // Update the completion status
                           setState(() {
-                            testCompletion[i] =
-                                true; // Assuming the test paper is completed
+                            if (canOpenTest) {
+                              testCompletion[i] = true;
+                            }
                           });
                         },
-                        child: Text(' Test Paper ${i + 1}'),
+                        child: Text('Test Paper ${i + 1}'),
                       ),
                   ],
                 ),
@@ -75,7 +114,7 @@ class TimelineWidget extends StatelessWidget {
             children: [
               _TimelineDot(completed: testCompletion[i]),
               if (i < testCompletion.length - 1)
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
               SizedBox(

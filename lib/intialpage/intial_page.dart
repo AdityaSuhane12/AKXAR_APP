@@ -42,7 +42,12 @@ class _IntialPageState extends State<IntialPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF7E30E1),
-        shape: CustomShapeBorder(),
+        shape:const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(40),
+            bottomRight: Radius.circular(40),
+          ),
+        ),
       ),
       body: Center(
         child: Column(
@@ -244,25 +249,6 @@ class _IntialPageState extends State<IntialPage> {
     );
   }
 }
-
-class CustomShapeBorder extends ContinuousRectangleBorder {
-  @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    const double radius = 49.0;
-    final Path path = Path()
-      ..moveTo(rect.left, rect.top)
-      ..lineTo(rect.bottomLeft.dx, rect.bottomLeft.dy - radius)
-      ..quadraticBezierTo(rect.bottomLeft.dx, rect.bottomLeft.dy,
-          rect.bottomLeft.dx + radius, rect.bottomLeft.dy)
-      ..lineTo(rect.bottomRight.dx - radius, rect.bottomRight.dy)
-      ..quadraticBezierTo(rect.bottomRight.dx, rect.bottomRight.dy,
-          rect.bottomRight.dx, rect.bottomRight.dy - radius)
-      ..lineTo(rect.right, rect.top)
-      ..close();
-    return path;
-  }
-}
-
 class ParagraphLine extends StatelessWidget {
   final String text;
 

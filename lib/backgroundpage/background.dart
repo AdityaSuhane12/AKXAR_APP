@@ -15,7 +15,12 @@ class _QuizPageState extends State<QuizPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF7E30E1),
-        shape: const CustomShapeBorder(),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(40),
+            bottomRight: Radius.circular(40),
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -140,25 +145,5 @@ class _QuizPageState extends State<QuizPage> {
         child: const Icon(Icons.arrow_forward),
       ),
     );
-  }
-}
-
-class CustomShapeBorder extends ContinuousRectangleBorder {
-  const CustomShapeBorder();
-
-  @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    const double radius = 49.0;
-    final Path path = Path()
-      ..moveTo(rect.left, rect.top)
-      ..lineTo(rect.bottomLeft.dx, rect.bottomLeft.dy - radius)
-      ..quadraticBezierTo(rect.bottomLeft.dx, rect.bottomLeft.dy,
-          rect.bottomLeft.dx + radius, rect.bottomLeft.dy)
-      ..lineTo(rect.bottomRight.dx - radius, rect.bottomRight.dy)
-      ..quadraticBezierTo(rect.bottomRight.dx, rect.bottomRight.dy,
-          rect.bottomRight.dx, rect.bottomRight.dy - radius)
-      ..lineTo(rect.right, rect.top)
-      ..close();
-    return path;
   }
 }
