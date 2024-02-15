@@ -1,17 +1,13 @@
 import 'package:akxar_app/Test_page/test_page.dart';
-import 'package:akxar_app/backgroundpage/temp1background.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-
-class QuizPage extends StatefulWidget {
-  const QuizPage({Key? key}) : super(key: key);
+class TempBack extends StatefulWidget {
+  const TempBack({super.key});
 
   @override
-  State<QuizPage> createState() => _QuizPageState();
+  State<TempBack> createState() => _TempBackState();
 }
 
-class _QuizPageState extends State<QuizPage> {
-  final ref = FirebaseDatabase.instance.ref('backgroundInfo');
+class _TempBackState extends State<TempBack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,9 +46,9 @@ class _QuizPageState extends State<QuizPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 27),
                     child: Text(
-                      'Do you need to read a sentence or paragraph three or four times before you “get it”?',
+                      'Do you confuse or forget the names of common household objects — calling a fork a spoon, for instance?',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
@@ -175,7 +171,7 @@ class _QuizPageState extends State<QuizPage> {
     onPressed: () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const TempBack()),
+        MaterialPageRoute(builder: (context) => const TestPage()),
       );
     },
     style: ElevatedButton.styleFrom(
