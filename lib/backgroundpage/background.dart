@@ -48,7 +48,11 @@ class _QuizPageState extends State<QuizPage> {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: [const  Text(
+                      'Question 1',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 24, color: Colors.white ,fontWeight: FontWeight.bold),
+                    ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
                     child: Text(

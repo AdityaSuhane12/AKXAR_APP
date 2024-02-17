@@ -4,15 +4,16 @@ import 'package:akxar_app/Test_page/spelling.dart';
 import 'package:flutter/material.dart';
 import 'package:akxar_app/Test_page/wordtest.dart';
 
+
 class TestPage extends StatefulWidget {
-  const TestPage({Key? key}) : super(key: key);
+List<bool> testCompletion = [false, false, false, false];
+  TestPage({Key? key ,required this.testCompletion}) : super(key: key);
 
   @override
   State<TestPage> createState() => _TestPageState();
 }
 
-class _TestPageState extends State<TestPage> {
-  List<bool> testCompletion = [false, false, false, false];
+class _TestPageState extends State<TestPage> { 
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,12 @@ class _TestPageState extends State<TestPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF7E30E1),
-        shape: const CustomShapeBorder(),
+         shape:const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(40),
+            bottomRight: Radius.circular(40),
+          ),
+        ),
       ),
       body: Stack(
         children: [
@@ -36,20 +42,20 @@ class _TestPageState extends State<TestPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TimelineWidget(
-                  testCompletion: testCompletion,
+                  testCompletion: widget.testCompletion,
                 ),
                 const SizedBox(width: 50),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    for (int i = 0; i < testCompletion.length; i++)
+                    for (int i = 0; i < widget.testCompletion.length; i++)
                       ElevatedButton(
                         onPressed: () {
                           bool canOpenTest = true;
 
                           // Check if previous tests are completed before opening the current one
                           for (int j = 0; j < i; j++) {
-                            if (!testCompletion[j]) {
+                            if (!widget.testCompletion[j]) {
                               canOpenTest = false;
                               break;
                             }
@@ -60,7 +66,7 @@ class _TestPageState extends State<TestPage> {
                             if (i == 0) {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const wordPage()),
+                                MaterialPageRoute(builder: (context) => const WordPage()),
                               );
                             } else if (i == 1) {
                               Navigator.push(
@@ -82,7 +88,7 @@ class _TestPageState extends State<TestPage> {
                           // Update the completion status
                           setState(() {
                             if (canOpenTest) {
-                              testCompletion[i] = true;
+                             widget.testCompletion[i] = true;
                             }
                           });
                         },
@@ -146,31 +152,10 @@ class _TimelineDot extends StatelessWidget {
         shape: BoxShape.circle,
         color: completed ? const Color(0xFF7E30E1) : Colors.grey,
       ),
-      child: completed ? Icon(Icons.done, color: Colors.white) : null,
+      child: completed ? const Icon(Icons.done, color: Colors.white) : null,
     );
   }
 }
-
-class CustomShapeBorder extends ContinuousRectangleBorder {
-  const CustomShapeBorder();
-
-  @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    const double radius = 49.0;
-    final Path path = Path()
-      ..moveTo(rect.left, rect.top)
-      ..lineTo(rect.bottomLeft.dx, rect.bottomLeft.dy - radius)
-      ..quadraticBezierTo(rect.bottomLeft.dx, rect.bottomLeft.dy,
-          rect.bottomLeft.dx + radius, rect.bottomLeft.dy)
-      ..lineTo(rect.bottomRight.dx - radius, rect.bottomRight.dy)
-      ..quadraticBezierTo(rect.bottomRight.dx, rect.bottomRight.dy,
-          rect.bottomRight.dx, rect.bottomRight.dy - radius)
-      ..lineTo(rect.right, rect.top)
-      ..close();
-    return path;
-  }
-}
-
 class LinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
