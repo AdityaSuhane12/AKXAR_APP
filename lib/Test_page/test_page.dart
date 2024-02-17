@@ -4,24 +4,22 @@ import 'package:akxar_app/Test_page/spelling.dart';
 import 'package:flutter/material.dart';
 import 'package:akxar_app/Test_page/wordtest.dart';
 
-
 class TestPage extends StatefulWidget {
-List<bool> testCompletion = [false, false, false, false];
-  TestPage({Key? key ,required this.testCompletion}) : super(key: key);
+  final List<bool> testCompletion;
+ const TestPage({Key? key, required this.testCompletion}) : super(key: key);
 
   @override
   State<TestPage> createState() => _TestPageState();
 }
 
-class _TestPageState extends State<TestPage> { 
-
+class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF7E30E1),
-         shape:const RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(40),
             bottomRight: Radius.circular(40),
@@ -66,29 +64,34 @@ class _TestPageState extends State<TestPage> {
                             if (i == 0) {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const WordPage()),
+                                MaterialPageRoute(
+                                    builder: (context) => const WordPage()),
                               );
                             } else if (i == 1) {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const DecodingPage()),
+                                MaterialPageRoute(
+                                    builder: (context) => const DecodingPage()),
                               );
                             } else if (i == 2) {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const PhonologicalPage()),
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PhonologicalPage()),
                               );
                             } else if (i == 3) {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const SpellingPage()),
+                                MaterialPageRoute(
+                                    builder: (context) => const SpellingPage()),
                               );
                             }
                           }
                           // Update the completion status
                           setState(() {
                             if (canOpenTest) {
-                             widget.testCompletion[i] = true;
+                              widget.testCompletion[i] = true;
                             }
                           });
                         },
@@ -156,6 +159,7 @@ class _TimelineDot extends StatelessWidget {
     );
   }
 }
+
 class LinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

@@ -1,6 +1,5 @@
 import 'package:akxar_app/scorepage/scorePage.dart';
 import 'package:flutter/material.dart';
-import 'package:akxar_app/scorepage/scorePage.dart';
 
 class SpellingPage extends StatefulWidget {
   const SpellingPage({super.key});

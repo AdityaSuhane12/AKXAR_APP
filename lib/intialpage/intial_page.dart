@@ -42,7 +42,7 @@ class _IntialPageState extends State<IntialPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF7E30E1),
-        shape:const RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(40),
             bottomRight: Radius.circular(40),
@@ -132,7 +132,8 @@ class _IntialPageState extends State<IntialPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ProfilePage()),
+                          builder: (context) => const ProfilePage(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -249,6 +250,7 @@ class _IntialPageState extends State<IntialPage> {
     );
   }
 }
+
 class ParagraphLine extends StatelessWidget {
   final String text;
 
