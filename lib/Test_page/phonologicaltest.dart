@@ -12,16 +12,19 @@ class _PhonologicalPageState extends State<PhonologicalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFF7E30E1),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(40),
-            bottomRight: Radius.circular(40),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(30.0), // Set the height here
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color(0xFF7E30E1),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
           ),
         ),
-      ),
+       ),
       body: Padding(
         padding: const EdgeInsets.all(40),
         child: Column(

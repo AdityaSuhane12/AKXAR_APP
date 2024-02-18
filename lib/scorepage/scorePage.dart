@@ -1,6 +1,5 @@
 import 'package:akxar_app/dailytaskpage/dailytaskpage.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 
 class ScorePage extends StatefulWidget {
   const ScorePage({super.key});
@@ -13,46 +12,50 @@ class _ScorePageState extends State<ScorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF7E30E1),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(40),
-            bottomRight: Radius.circular(40),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(30.0), // Set the height here
+        child: AppBar(
+          automaticallyImplyLeading: true,
+          backgroundColor: const Color(0xFF7E30E1),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
           ),
         ),
-      ),
+       ),
       body: Padding(
-        padding: const EdgeInsetsDirectional.only(top: 30, start: 42),
+        padding: const EdgeInsetsDirectional.only(top: 15, start: 42),
         child: Stack(children: [
           Padding(
             padding: const EdgeInsets.only(top: 280),
             child: Container(
               width: 310,
-              height: 300,
+              height: 305,
               decoration: const BoxDecoration(
-                  color: Color(0xFFE26EE5),
+                  color: Color.fromARGB(255, 221, 126, 224),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30))),
               child: ListView(
-                padding: const EdgeInsets.only(top: 120.0, right: 15),
+                padding: const EdgeInsets.only(top: 110.0, right: 15),
                 children: const [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10),
+                        padding: EdgeInsets.only(top: 8, right: 18 ,left:8),
                         child: CircleIcon(
                             icon: Icons.star, text: 'Expert\nGuidance'),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 10),
+                        padding: EdgeInsets.only(bottom: 10, right: 20 ,left:15),
                         child: CircleIcon(
                             icon: Icons.access_alarm, text: 'Icon 2'),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 10),
+                        padding: EdgeInsets.only(bottom: 10,left:18),
                         child:
                             CircleIcon(icon: Icons.access_time, text: 'Icon 3'),
                       ),
@@ -62,15 +65,18 @@ class _ScorePageState extends State<ScorePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CircleIcon(
-                          icon: Icons.local_hospital_sharp,
-                          text: 'Find\nNeurologist'),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 22, right: 16),
+                        padding: EdgeInsets.only(right: 18,left: 5),
+                        child: CircleIcon(
+                            icon: Icons.local_hospital_sharp,
+                            text: 'Find\nNeurologist'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 22, right: 32 ,left: 13),
                         child: CircleIcon(icon: Icons.help, text: 'Help'),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 22,right: 4),
+                        padding: EdgeInsets.only(bottom: 22, right: 3,left:10),
                         child: CircleIcon(
                             icon: Icons.share_rounded, text: 'Share'),
                       ),
@@ -92,9 +98,8 @@ class _ScorePageState extends State<ScorePage> {
               child: const SizedBox(),
             ),
           ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 42),
+           Padding(
+              padding: const EdgeInsets.only(right: 20, top: 255 ,left: 10),
               child: Container(
                 width: 290,
                 height: 128,
@@ -107,10 +112,9 @@ class _ScorePageState extends State<ScorePage> {
                 ),
               ),
             ),
-          ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(top: 590, right: 30),
+              padding: const EdgeInsets.only(top: 580, right: 30),
               child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -120,7 +124,7 @@ class _ScorePageState extends State<ScorePage> {
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF7E30E1),
-                      fixedSize: const Size(290, 20)),
+                      fixedSize: const Size(290, 50)),
                   child: const Padding(
                     padding: EdgeInsets.only(left: 30),
                     child: Row(
@@ -151,32 +155,32 @@ class _ScorePageState extends State<ScorePage> {
 class ScorePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    const double strokeWidth = 65.0;
+    const double strokeWidth = 60.0;
     final double radius = size.width / 2 - strokeWidth;
 
     // Draw the outer circle with glow effect
     final outerGlowPaint = Paint()
-      ..color = const Color.fromARGB(255, 246, 177, 236)
+      ..color = Color.fromARGB(255, 253, 159, 239)
       ..style = PaintingStyle.fill
-      ..maskFilter = const MaskFilter.blur(BlurStyle.inner, 5.0);
+      ..maskFilter = const MaskFilter.blur(BlurStyle.inner, 2.0);
     canvas.drawCircle(
         Offset(size.width / 2, (size.height / 2) - 20), radius, outerGlowPaint);
 
     // Draw the inner circle with glow effect
     final innerGlowPaint = Paint()
-      ..color = const Color.fromARGB(255, 226, 137, 211)
+      ..color = Color.fromARGB(255, 253, 206, 244)
       ..style = PaintingStyle.fill
-      ..maskFilter = const MaskFilter.blur(BlurStyle.inner, 5.0);
+      ..maskFilter = const MaskFilter.blur(BlurStyle.inner, 2.0);
     canvas.drawCircle(Offset(size.width / 2, (size.height / 2) - 20),
-        radius / 1.2, innerGlowPaint);
+        radius / 1.3, innerGlowPaint);
 
     // Draw the innermost circle with glow effect
     final innermostGlowPaint = Paint()
       ..color = const Color.fromARGB(255, 254, 254, 255)
       ..style = PaintingStyle.fill
-      ..maskFilter = const MaskFilter.blur(BlurStyle.inner, 5.0);
+      ..maskFilter = const MaskFilter.blur(BlurStyle.inner, 2.0);
     canvas.drawCircle(Offset(size.width / 2, (size.height / 2) - 20),
-        radius / 1.4, innermostGlowPaint);
+        radius / 1.7, innermostGlowPaint);
 
     // Draw the "Your Score" text
     const textStyle = TextStyle(
@@ -217,14 +221,14 @@ class DividerPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = const Color.fromARGB(249, 142, 139, 139)
-      ..strokeWidth = 1.0
+      ..strokeWidth = 0.5
       ..strokeCap = StrokeCap.round;
 
     // Draw vertical lines to divide the rectangle into four parts
     final double divisionWidth = (size.width / 2);
     canvas.drawLine(
-      Offset(divisionWidth, 10),
-      Offset(divisionWidth, size.height - 10),
+      Offset(divisionWidth + 3, 10),
+      Offset(divisionWidth + 3, size.height - 10),
       paint,
     );
 
@@ -333,11 +337,12 @@ class CircleIcon extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 30,
-          height: 30,
+          width: 40,
+          height: 40,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            color: Color.fromARGB(255, 235, 236, 237), // Change color as needed
+            color: Color.fromARGB(255, 235, 236, 237),
+            // Change color as needed
           ),
           child: Icon(
             icon,
@@ -347,7 +352,7 @@ class CircleIcon extends StatelessWidget {
         const Padding(padding: EdgeInsets.only(top: 3)),
         Text(
           text,
-          style: const TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 14),
           textAlign: TextAlign.center,
         ),
       ],

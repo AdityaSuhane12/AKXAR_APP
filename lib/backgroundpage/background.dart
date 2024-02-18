@@ -14,16 +14,19 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFF7E30E1),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(40),
-            bottomRight: Radius.circular(40),
+   appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(30.0), // Set the height here
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color(0xFF7E30E1),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
           ),
         ),
-      ),
+       ),
       body: Column(
         children: [
           const Padding(
@@ -40,7 +43,7 @@ class _QuizPageState extends State<QuizPage> {
           Center(
             child: Container(
               width: 350,
-              height: 380,
+              height: 390,
               decoration: BoxDecoration(
                 color: const Color(0xFF7E30E1),
                 borderRadius: BorderRadius.circular(20.0),
