@@ -9,11 +9,13 @@ class TempBack extends StatefulWidget {
 }
 
 class _TempBackState extends State<TempBack> {
+  int selectedButtonIndex = -1; // Initially no button is selected
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(30.0), // Set the height here
+        preferredSize: const Size.fromHeight(30.0),
         child: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color(0xFF7E30E1),
@@ -24,7 +26,7 @@ class _TempBackState extends State<TempBack> {
             ),
           ),
         ),
-       ),
+      ),
       body: Column(
         children: [
           const Padding(
@@ -73,9 +75,16 @@ class _TempBackState extends State<TempBack> {
                           child: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  // Update the selected button index
+                                  selectedButtonIndex = 0;
+                                });
+                              },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFE26EE5),
+                                backgroundColor: selectedButtonIndex == 0
+                                    ? const Color.fromARGB(255, 241, 38, 187)
+                                    : const Color(0xFFE26EE5),
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 15,
                                   horizontal: 30,
@@ -96,9 +105,16 @@ class _TempBackState extends State<TempBack> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  // Update the selected button index
+                                  selectedButtonIndex = 1;
+                                });
+                              },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFE26EE5),
+                                backgroundColor: selectedButtonIndex == 1
+                                    ? const Color.fromARGB(255, 241, 38, 187)
+                                    : const Color(0xFFE26EE5),
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 15,
                                   horizontal: 30,
@@ -128,9 +144,16 @@ class _TempBackState extends State<TempBack> {
                           child: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  // Update the selected button index
+                                  selectedButtonIndex = 2;
+                                });
+                              },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFE26EE5),
+                                backgroundColor: selectedButtonIndex == 2
+                                    ? const Color.fromARGB(255, 241, 38, 187)
+                                    : const Color(0xFFE26EE5),
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 15,
                                   horizontal: 25,
@@ -151,9 +174,16 @@ class _TempBackState extends State<TempBack> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  // Update the selected button index
+                                  selectedButtonIndex = 3;
+                                });
+                              },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFE26EE5),
+                                backgroundColor: selectedButtonIndex == 3
+                                    ? const Color.fromARGB(255, 241, 38, 187)
+                                    : const Color(0xFFE26EE5),
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 15,
                                   horizontal: 42,
@@ -215,8 +245,8 @@ class _TempBackState extends State<TempBack> {
               ),
             ),
           )
-        ],
-      ),
-    );
+                ],
+              ), 
+          );
   }
 }

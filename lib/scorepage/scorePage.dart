@@ -27,7 +27,7 @@ class _ScorePageState extends State<ScorePage> {
        ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsetsDirectional.only(top: 50, start: 55),
+          padding: const EdgeInsetsDirectional.only(top: 35, start: 45),
           child: Stack(children: [
             Padding(
               padding: const EdgeInsets.only(top: 280),
@@ -115,7 +115,7 @@ class _ScorePageState extends State<ScorePage> {
               ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 560, right: 30),
+                padding: const EdgeInsets.only(top: 570, right: 30),
                 child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(

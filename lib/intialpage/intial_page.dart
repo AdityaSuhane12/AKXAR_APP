@@ -53,111 +53,114 @@ class _IntialPageState extends State<IntialPage> {
           ),
         ),
        ),
-      body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              const ParagraphLine(
-                  text: "In the digital realm it seeks,finding paths to"),
-              const ParagraphLine(text: " guide the way ,"),
-              const ParagraphLine(
-                  text: "With each gentle touch and click, brighter"),
-              const ParagraphLine(text: " shines the day."),
-              // Add some space between text and image
-              Container(
-                width: 275, // Adjust the width as needed
-                height: 275,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/img_logo.png'),
-                    fit: BoxFit.cover,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 25),
+        child: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                const ParagraphLine(
+                    text: "In the digital realm it seeks,finding paths to"),
+                const ParagraphLine(text: " guide the way ,"),
+                const ParagraphLine(
+                    text: "With each gentle touch and click, brighter"),
+                const ParagraphLine(text: " shines the day."),
+                // Add some space between text and image
+                Container(
+                  width: 275, // Adjust the width as needed
+                  height: 275,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/img_logo.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              const Align(
-                child: Center(
-                    child: Text(
-                  'Nurturing minds, illuminating futures',
-                  style: TextStyle(fontSize: 16, fontFamily: 'ARIAL'),
-                )),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              _user != null ? _userInfo() : _googleSignInButton(),
-              const SizedBox(
-                height: 10,
-              ),
-              const SizedBox(
-                width: 300,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        color: Colors.black,
-                        height: 36,
-                        thickness: 2,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                const Align(
+                  child: Center(
                       child: Text(
-                        "or",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        color: Colors.black,
-                        thickness: 2,
-                        height: 36,
-                      ),
-                    ),
-                  ],
+                    'Nurturing minds, illuminating futures',
+                    style: TextStyle(fontSize: 16, fontFamily: 'ARIAL'),
+                  )),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: SizedBox(
-                  height: 50,
+                const SizedBox(
+                  height: 30,
+                ),
+                _user != null ? _userInfo() : _googleSignInButton(),
+                const SizedBox(
+                  height: 10,
+                ),
+                const SizedBox(
                   width: 300,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigate to the other page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ProfilePage(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          color: Colors.black,
+                          height: 36,
+                          thickness: 2,
                         ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(20.0), // Rounded corners
                       ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Text(
-                        'Login as a Guest',
-                        style: TextStyle(fontSize: 18),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: Text(
+                          "or",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: Colors.black,
+                          thickness: 2,
+                          height: 36,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: SizedBox(
+                    height: 50,
+                    width: 300,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Navigate to the other page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProfilePage(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(20.0), // Rounded corners
+                        ),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: Text(
+                          'Login as a Guest',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ]),
+              ]),
+        ),
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
