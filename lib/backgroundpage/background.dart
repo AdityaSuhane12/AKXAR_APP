@@ -42,8 +42,8 @@ class _QuizPageState extends State<QuizPage> {
           ),
           Center(
             child: Container(
-              width: 350,
-              height: 390,
+              width: 370,
+              height: 400,
               decoration: BoxDecoration(
                 color: const Color(0xFF7E30E1),
                 borderRadius: BorderRadius.circular(20.0),
@@ -85,7 +85,7 @@ class _QuizPageState extends State<QuizPage> {
                               child: const Text(
                                 'Very Often',
                                 style: TextStyle(
-                                    fontSize: 17, color: Colors.white),
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ),
                           ),
@@ -109,7 +109,7 @@ class _QuizPageState extends State<QuizPage> {
                                 'Often',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.white),
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ),
                           ),
@@ -140,7 +140,7 @@ class _QuizPageState extends State<QuizPage> {
                               child: const Text(
                                 'Sometimes',
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.white),
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ),
                           ),
@@ -163,7 +163,7 @@ class _QuizPageState extends State<QuizPage> {
                               child: const Text(
                                 'Never',
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.white),
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ),
                           ),
