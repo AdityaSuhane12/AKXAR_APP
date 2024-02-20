@@ -29,83 +29,85 @@ class _TestPageState extends State<TestPage> {
           ),
         ),
        ),
-      body: Stack(
-        children: [
-          // Background logo
-          Center(
-            child: Image.asset(
-              'assets/images/img_background_logo.png',
-              fit: BoxFit.cover,
+      body: Center(
+        child: Stack(
+          children: [
+            // Background logo
+            Center(
+              child: Image.asset(
+                'assets/images/img_background_logo.png',
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TimelineWidget(
-                  testCompletion: widget.testCompletion,
-                ),
-                const SizedBox(width: 50),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    for (int i = 0; i < widget.testCompletion.length; i++)
-                      ElevatedButton(
-                        onPressed: () {
-                          bool canOpenTest = true;
-
-                          // Check if previous tests are completed before opening the current one
-                          for (int j = 0; j < i; j++) {
-                            if (!widget.testCompletion[j]) {
-                              canOpenTest = false;
-                              break;
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TimelineWidget(
+                    testCompletion: widget.testCompletion,
+                  ),
+                  const SizedBox(width: 50),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      for (int i = 0; i < widget.testCompletion.length; i++)
+                        ElevatedButton(
+                          onPressed: () {
+                            bool canOpenTest = true;
+        
+                            // Check if previous tests are completed before opening the current one
+                            for (int j = 0; j < i; j++) {
+                              if (!widget.testCompletion[j]) {
+                                canOpenTest = false;
+                                break;
+                              }
                             }
-                          }
-
-                          // Navigate to the test page if conditions are met
-                          if (canOpenTest) {
-                            if (i == 0) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const WordPage()),
-                              );
-                            } else if (i == 1) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const DecodingPage()),
-                              );
-                            } else if (i == 2) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PhonologicalPage()),
-                              );
-                            } else if (i == 3) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SpellingPage()),
-                              );
-                            }
-                          }
-                          // Update the completion status
-                          setState(() {
+        
+                            // Navigate to the test page if conditions are met
                             if (canOpenTest) {
-                              widget.testCompletion[i] = true;
+                              if (i == 0) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const WordPage()),
+                                );
+                              } else if (i == 1) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const DecodingPage()),
+                                );
+                              } else if (i == 2) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const PhonologicalPage()),
+                                );
+                              } else if (i == 3) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const SpellingPage()),
+                                );
+                              }
                             }
-                          });
-                        },
-                        child: Text('Test Paper ${i + 1}'),
-                      ),
-                  ],
-                ),
-              ],
+                            // Update the completion status
+                            setState(() {
+                              if (canOpenTest) {
+                                widget.testCompletion[i] = true;
+                              }
+                            });
+                          },
+                          child: Text('Test Paper ${i + 1}'),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

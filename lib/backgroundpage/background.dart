@@ -211,16 +211,14 @@ class _QuizPageState extends State<QuizPage> {
             Padding(
               padding: const EdgeInsets.all(50.0),
               child: ElevatedButton(
-                onPressed: selectedOptionIndex != -1
-                    ? () {
+                onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const TempBack(),
                           ),
                         );
-                      }
-                    : null, // Disable button if no option is selected
+                      }, // Disable button if no option is selected
                 style: ElevatedButton.styleFrom(
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 40),

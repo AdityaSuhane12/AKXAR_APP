@@ -208,7 +208,7 @@ class _IntialPageState extends State<IntialPage> {
               const Text(
                 "Sign up with Google",
                 style: TextStyle(
-                  color: Colors.black, // Set the text color
+                  color: Colors.white, // Set the text color
                   fontSize: 16,
                 ),
               ),

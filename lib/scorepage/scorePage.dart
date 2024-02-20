@@ -24,130 +24,140 @@ class _ScorePageState extends State<ScorePage> {
             ),
           ),
         ),
-       ),
+      ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsetsDirectional.only(top: 35, start: 45),
-          child: Stack(children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 280),
-              child: Container(
-                width: 310,
-                height: 305,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 221, 126, 224),
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30))),
-                child: ListView(
-                  padding: const EdgeInsets.only(top: 110.0, right: 15),
-                  children: const [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 8, right: 18 ,left:8),
-                          child: CircleIcon(
-                              icon: Icons.star, text: 'Expert\nGuidance'),
+          padding: const EdgeInsetsDirectional.only(top: 30),
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 280),
+                  child: Container(
+                    width: 315,
+                    height: 305,
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 221, 126, 224),
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(30),
+                            bottomRight: Radius.circular(30))),
+                    child: ListView(
+                      padding: const EdgeInsets.only(top: 110.0, right: 15),
+                      children: const [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: 8, right: 18, left: 8),
+                              child: CircleIcon(
+                                  icon: Icons.star, text: 'Expert\nGuidance'),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(bottom: 10, right: 20, left: 15),
+                              child: CircleIcon(
+                                  icon: Icons.access_alarm, text: 'Icon 2'),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 10, left: 18),
+                              child: CircleIcon(
+                                  icon: Icons.access_time, text: 'Icon 3'),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 10, right: 20 ,left:15),
-                          child: CircleIcon(
-                              icon: Icons.access_alarm, text: 'Icon 2'),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 10,left:18),
-                          child:
-                              CircleIcon(icon: Icons.access_time, text: 'Icon 3'),
+                        Padding(padding: EdgeInsets.all(2)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(right: 18, left: 5),
+                              child: CircleIcon(
+                                  icon: Icons.local_hospital_sharp,
+                                  text: 'Find\nNeurologist'),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(bottom: 22, right: 32, left: 13),
+                              child: CircleIcon(icon: Icons.help, text: 'Help'),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(bottom: 22, right: 3, left: 10),
+                              child: CircleIcon(
+                                  icon: Icons.share_rounded, text: 'Share'),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.all(2)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(right: 18,left: 5),
-                          child: CircleIcon(
-                              icon: Icons.local_hospital_sharp,
-                              text: 'Find\nNeurologist'),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 22, right: 32 ,left: 13),
-                          child: CircleIcon(icon: Icons.help, text: 'Help'),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 22, right: 3,left:10),
-                          child: CircleIcon(
-                              icon: Icons.share_rounded, text: 'Share'),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            Container(
-              width: 310,
-              height: 320,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: const Color(0xFF7E30E1),
-              ),
-              child: CustomPaint(
-                painter: ScorePainter(),
-                child: const SizedBox(),
-              ),
-            ),
-             Padding(
-                padding: const EdgeInsets.only(right: 20, top: 255 ,left: 10),
-                child: Container(
-                  width: 290,
-                  height: 128,
+                Container(
+                  width: 315,
+                  height: 320,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(30),
+                    color: const Color(0xFF7E30E1),
+                  ),
                   child: CustomPaint(
-                    painter: DividerPainter(),
+                    painter: ScorePainter(),
                     child: const SizedBox(),
                   ),
                 ),
-              ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 570, right: 30),
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DailyTaskPage()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF7E30E1),
-                        fixedSize: const Size(290, 60)),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Mark for Evaluation',
-                            style: TextStyle(fontSize: 18, color: Colors.white),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                              size: 24,
+                Padding(
+                  padding: const EdgeInsets.only(right: 20, top: 255, left: 10),
+                  child: Container(
+                    width: 290,
+                    height: 128,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: CustomPaint(
+                      painter: DividerPainter(),
+                      child: const SizedBox(),
+                    ),
+                  ),
+                ),
+              
+              ]),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Center(
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const DailyTaskPage()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF7E30E1),
+                              fixedSize: const Size(290, 50)),
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 30),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Move for Evaluation',
+                                  style: TextStyle(fontSize: 17, color: Colors.white),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 10),
+                                  child: Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.white,
+                                    size: 24,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                    )),
-              ),
-            )
-          ]),
+                          )
+                    ),
+                  ),
+                )
+            ],
+          ),
         ),
       ),
     );
