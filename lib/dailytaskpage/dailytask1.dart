@@ -102,7 +102,7 @@ class _Task1State extends State<Task1> {
                               style: TextStyle(fontSize: 17, color: Colors.white),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 20),
+                              padding: EdgeInsets.only(left: 15),
                               child: Icon(
                                 Icons.arrow_forward,
                                 color: Colors.white,

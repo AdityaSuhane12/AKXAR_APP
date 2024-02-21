@@ -45,7 +45,7 @@ class _DailyTaskPageState extends State<DailyTaskPage> {
           ),
           Container(
             width: 325,
-            height: 90,
+            height: 93,
             decoration: const BoxDecoration(
                 color: Color(0xFF7E30E1),
                 borderRadius: BorderRadius.all(Radius.circular(25))),
@@ -105,7 +105,7 @@ class _DailyTaskPageState extends State<DailyTaskPage> {
             padding: const EdgeInsets.only(top: 13),
             child: Container(
               width: 325,
-              height: 90,
+              height: 93,
               decoration: const BoxDecoration(
                   color: Color(0xFF7E30E1),
                   borderRadius: BorderRadius.all(Radius.circular(25))),
@@ -167,7 +167,7 @@ class _DailyTaskPageState extends State<DailyTaskPage> {
             padding: const EdgeInsets.only(top: 13),
             child: Container(
               width: 325,
-              height: 90,
+              height: 93,
               decoration: const BoxDecoration(
                 color: Color(0xFF7E30E1),
                 borderRadius: BorderRadius.all(Radius.circular(25)),
