@@ -1,5 +1,6 @@
 import 'package:akxar_app/dailytaskpage/dailytaskpage.dart';
 import 'package:flutter/material.dart';
+import 'package:akxar_app/Test_page/test_page.dart';
 
 class ScorePage extends StatefulWidget {
   const ScorePage({super.key});
@@ -44,25 +45,31 @@ class _ScorePageState extends State<ScorePage> {
                             bottomRight: Radius.circular(30))),
                     child: ListView(
                       padding: const EdgeInsets.only(top: 110.0, right: 15),
-                      children: const [
+                      children:  [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(top: 8, right: 18, left: 8),
+                              padding: const EdgeInsets.only(top: 8, right: 18, left: 8),
                               child: CircleIcon(
-                                  icon: Icons.star, text: 'Expert\nGuidance'),
+                                  icon: Icons.star, text: 'Expert\nGuidance',
+                                   onTap: () {}),
                             ),
                             Padding(
                               padding:
-                                  EdgeInsets.only(bottom: 10, right: 20, left: 15),
+                                 const EdgeInsets.only(bottom: 10, right: 20, left: 15),
                               child: CircleIcon(
-                                  icon: Icons.access_alarm, text: 'Icon 2'),
+                                  icon:  Icons.insert_chart, text: 'Stats',
+                                  onTap: (){
+
+                                  },),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(bottom: 10, left: 18),
+                              padding: const EdgeInsets.only(bottom: 10, left: 18),
                               child: CircleIcon(
-                                  icon: Icons.access_time, text: 'Icon 3'),
+                                  icon:  Icons.refresh, text: 'Restart',onTap: () {
+                             
+                                  },),
                             ),
                           ],
                         ),
@@ -74,18 +81,28 @@ class _ScorePageState extends State<ScorePage> {
                               padding: EdgeInsets.only(right: 18, left: 5),
                               child: CircleIcon(
                                   icon: Icons.local_hospital_sharp,
-                                  text: 'Find\nNeurologist'),
+                                  text: 'Find\nNeurologist',
+                                  onTap: () {
+                                    
+                                  },),
+                                  
                             ),
                             Padding(
                               padding:
-                                  EdgeInsets.only(bottom: 22, right: 32, left: 13),
-                              child: CircleIcon(icon: Icons.help, text: 'Help'),
+                                const   EdgeInsets.only(bottom: 22, right: 32, left: 13),
+                              child: CircleIcon(icon: Icons.help, text: 'Help',
+                               onTap: () {
+                                    
+                                  }),
                             ),
                             Padding(
                               padding:
-                                  EdgeInsets.only(bottom: 22, right: 3, left: 10),
+                                const   EdgeInsets.only(bottom: 22, right: 3, left: 10),
                               child: CircleIcon(
-                                  icon: Icons.share_rounded, text: 'Share'),
+                                  icon: Icons.share_rounded, text: 'Share',
+                                   onTap: () {
+                                    
+                                  }),
                             ),
                           ],
                         ),
@@ -340,34 +357,38 @@ class DividerPainter extends CustomPainter {
 class CircleIcon extends StatelessWidget {
   final IconData icon;
   final String text;
+  final VoidCallback onTap;
 
-  const CircleIcon({Key? key, required this.icon, required this.text})
+  const CircleIcon({Key? key, required this.icon, required this.text, required this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 40,
-          height: 40,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color.fromARGB(255, 235, 236, 237),
-            // Change color as needed
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color.fromARGB(255, 235, 236, 237),
+              // Change color as needed
+            ),
+            child: Icon(
+              icon,
+              color: const Color(0xFF7E30E1),
+            ),
           ),
-          child: Icon(
-            icon,
-            color: const Color(0xFF7E30E1),
+          const Padding(padding: EdgeInsets.only(top: 3)),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 14),
+            textAlign: TextAlign.center,
           ),
-        ),
-        const Padding(padding: EdgeInsets.only(top: 3)),
-        Text(
-          text,
-          style: const TextStyle(fontSize: 14),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
