@@ -1,5 +1,4 @@
-
-![AKXAR_APP](https://socialify.git.ci/AdityaSuhane12/AKXAR_APP/image?description=1&descriptionEditable=Nurturing%20minds%2C%20illuminating%20futures&font=Source%20Code%20Pro&forks=1&issues=1&language=1&logo=https%3A%2F%2Fiili.io%2FJG1SxAN.png&name=1&owner=1&pattern=Solid&pulls=1&stargazers=1&theme=Auto)
+![AKXAR_APP](https://socialify.git.ci/AdityaSuhane12/AKXAR_APP/image?description=1&descriptionEditable=Nurturing%20minds%2C%20illuminating%20futures&font=Source%20Code%20Pro&forks=1&issues=1&logo=https%3A%2F%2Fiili.io%2FJG1SxAN.png&name=1&pattern=Solid&pulls=1&stargazers=1&theme=Auto)
 
 AKXAR is a platform designed to provide personalized support for individuals with dyslexia, leveraging advanced technical methodologies to optimize literacy skill development.
 
