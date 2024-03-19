@@ -1,6 +1,6 @@
 import 'package:akxar_app/dailytaskpage/dailytaskpage.dart';
 import 'package:flutter/material.dart';
-import 'package:akxar_app/Test_page/test_page.dart';
+
 
 class ScorePage extends StatefulWidget {
   const ScorePage({super.key});
